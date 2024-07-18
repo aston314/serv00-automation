@@ -32,7 +32,7 @@ tg交流群：[https://t.me/zzzjsjl](https://t.me/zzzjsjl)
 
   
 
-- `NTFY_TOPIC：改ntfy用于推送通知，请填写用于接收通知的topic。以下是示例
+- `NTFY_TOPIC：修改为使用ntfy[https://docs.ntfy.sh/publish/#__tabbed_1_7]用于推送通知，请填写用于接收通知的topic。以下是示例
 
 ```bash
 abc
