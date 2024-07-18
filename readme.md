@@ -32,10 +32,10 @@ tg交流群：[https://t.me/zzzjsjl](https://t.me/zzzjsjl)
 
   
 
-- `PUSHPLUS_TOKEN`：用于推送通知的API令牌。以下是示例
+- `NTFY_TOPIC：改ntfy用于推送通知，请填写用于接收通知的topic。以下是示例
 
 ```bash
-QSchSXne1MzKA3sSuOTHP0dPOR2tEmHDjw
+abc
 ```
 
 
