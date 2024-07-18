@@ -2,6 +2,7 @@ import os
 import paramiko
 import requests
 import json
+import urllib.parse
 from datetime import datetime, timezone, timedelta
 
 def ssh_multiple_connections(hosts_info, command):
@@ -56,14 +57,14 @@ loginip = requests.get('https://api.ipify.org?format=json').json()['ip']
 
 #import requests
 
-title = 'serv00 ligin'
+title = 'serv00 服务器登录提醒'
 content = f"用户：{', '.join(user_list)}, 登录了 SSH 服务器\n登录时间：{time}\n登录IP：{loginip}"
 
 ntfy_topic = os.getenv('NTFY_TOPIC') # 替换为您的 ntfy topic
 url = f'https://ntfy.sh/{ntfy_topic}'
 
 headers = {
-    "Title": title,
+    "Title": urllib.parse.quote(title),
     "Priority": "3",  # 设置优先级,范围是 1-5,3 为默认
     "Tags": "warning,ssh",  # 可选,用于在通知中显示图标
 }
