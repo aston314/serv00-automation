@@ -35,7 +35,7 @@ time = datetime.now(beijing_timezone).strftime('%Y-%m-%d %H:%M:%S')
 
 loginip = requests.get('https://api.ipify.org?format=json').json()['ip']
 
-pushplus_token = os.getenv('PUSHPLUS_TOKEN')
+#pushplus_token = os.getenv('PUSHPLUS_TOKEN')
 
 # title = 'serv00 服务器登录提醒'
 # content = f"用户：{', '.join(user_list)}, 登录了 SSH 服务器<br>登录时间：{time}<br>登录IP：{loginip}"
@@ -54,7 +54,7 @@ pushplus_token = os.getenv('PUSHPLUS_TOKEN')
 # else:
 #     print(f"推送失败，状态码: {response.status_code}")
 
-import requests
+#import requests
 
 title = 'serv00 服务器登录提醒'
 content = f"用户：{', '.join(user_list)}, 登录了 SSH 服务器\n登录时间：{time}\n登录IP：{loginip}"
@@ -68,7 +68,8 @@ headers = {
     'Tags': 'warning,ssh',  # 可选,用于在通知中显示图标
 }
 
-response = requests.post(url, data=content.encode(encoding='utf-8'), headers=headers)
+#response = requests.post(url, data=content.encode(encoding='utf-8'), headers=headers)
+response = requests.post(url, data=content, headers=headers)
 
 if response.status_code == 200:
     print("推送成功")
