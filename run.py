@@ -68,7 +68,7 @@ headers = {
     'Tags': 'warning,ssh',  # 可选,用于在通知中显示图标
 }
 
-response = requests.post(url, data=content.encode(encoding='utf-8'), headers=json.dumps(headers).encode(encoding='utf-8'))
+response = requests.post(url, data=content.encode(encoding='utf-8'))
 #response = requests.post(url, data=body, headers=headers)
 
 if response.status_code == 200:
