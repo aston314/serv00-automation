@@ -56,19 +56,19 @@ loginip = requests.get('https://api.ipify.org?format=json').json()['ip']
 
 #import requests
 
-title = 'serv00 服务器登录提醒'
+title = 'serv00 ligin'
 content = f"用户：{', '.join(user_list)}, 登录了 SSH 服务器\n登录时间：{time}\n登录IP：{loginip}"
 
 ntfy_topic = os.getenv('NTFY_TOPIC') # 替换为您的 ntfy topic
 url = f'https://ntfy.sh/{ntfy_topic}'
 
 headers = {
-    'Title': title,
-    'Priority': '3',  # 设置优先级,范围是 1-5,3 为默认
-    'Tags': 'warning,ssh',  # 可选,用于在通知中显示图标
+    "Title": title,
+    "Priority": "3",  # 设置优先级,范围是 1-5,3 为默认
+    "Tags": "warning,ssh",  # 可选,用于在通知中显示图标
 }
 
-response = requests.post(url, data=content.encode(encoding='utf-8'))
+response = requests.post(url, data=content.encode(encoding='utf-8'), headers )
 #response = requests.post(url, data=body, headers=headers)
 
 if response.status_code == 200:
