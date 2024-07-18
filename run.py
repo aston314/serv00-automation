@@ -2,7 +2,6 @@ import os
 import paramiko
 import requests
 import json
-import urllib.parse
 from datetime import datetime, timezone, timedelta
 
 def ssh_multiple_connections(hosts_info, command):
@@ -64,7 +63,7 @@ ntfy_topic = os.getenv('NTFY_TOPIC') # 替换为您的 ntfy topic
 url = f'https://ntfy.sh/{ntfy_topic}'
 
 headers = {
-    "Title": urllib.parse.quote(title),
+    "Title": title.encode(encoding='utf-8'),
     "Priority": "3",  # 设置优先级,范围是 1-5,3 为默认
     "Tags": "warning,ssh",  # 可选,用于在通知中显示图标
 }
